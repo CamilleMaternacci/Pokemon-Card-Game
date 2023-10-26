@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./img/icon-svg.webp">
+    <title>Pokemon Battle - Card Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mohave:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/78eebef08c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <audio src="./music/Raid Timer - Pokémon GO OST (Extended).mp3" class="music-audio"></audio>
+    <audio src="./music/interface-124464.mp3" class="generate-audio"></audio>
+    <audio src="./music/sword-hit-7160.mp3" class="fight-audio"></audio>
+    <audio src="./music/hit-low-gravity-absorber-cinematic-trailer-sound-effects-124761.mp3"
+        class="results-audio"></audio>
+
+    <div class="welcome-popup">
+        <div class="instructions-area">
+            <h2>How to play - Rules of the game</h2>
+            <p>Each turn, a player can draw a Pokémon card three times for himself and an opponent. Once drawn three
+                times, the 'generate' button is locked.
+                If the player has selected a card for himself as well as his opponent, he can press the "Fight" button.
+                The card whose sum of stats is greater than the opposite card wins the duel. <br><br> After winning the
+                duel, there is another turn where the player can again draw cards three times for himself and his
+                opponent. To proceed to the next duel, a new card must be drawn for your opponent. Losing a duel with an
+                opponent's card results in the end of the game. To play again, after losing a duel, press the 'New Game'
+                button in the window that appears. <br><br> To turn the in-game music on or off, press the
+                buttons in the top left corner.
+                By default, music are turned off. To start the game, choose your hero by clicking on
+                the pokeball under the character's name. <br>
+                <b>Enjoy the game!</b>
+            </p>
+
+            <p></p>
+        </div>
+        <div class="characters-area">
+        </div>
+    </div>
+    <div class="shadow"></div>
+
+    <div class="app">
+        <div class="lose-popup">
+            <div class="pokemon-fight-img">
+                <h3>You have been defeated</h3>
+                <button class="restart-btn">Play Again</button>
+                <div class="shadow-fight"></div>
+            </div>
+        </div>
+        <button class="music-btn"><i class="fa-solid fa-volume-low"></i></button>
+        <button class="stop-music-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+        <div class="choosen-player-area">
+        </div>
+        <div class="title"><img src="./img/title.png" alt="game-logo"></div>
+        <div class="app-area">
+            <div class="middle-area middle-area-shadow">
+                <section class="your-card-section">
+                    <div class="pokemon-title"><img src="./img/your-pokemon2.png" alt="pokemon-title-img"></div>
+                    <div class="your-card-area">
+                        <div class="your-card animated-card">
+                            <div class="top-card">
+                                <p class="experiences"></p>
+                                <p class="type"></p>
+                            </div>
+                            <div class="img-area">
+                                <img src="" alt="pokemon-image" class="pokemon-img">
+                                <p class="pokemon-name"></p>
+                            </div>
+                            <div class="middle-card">
+                                <p class="first-abilities"></p>
+                                <p class="second-abilities"></p>
+                            </div>
+                            <div class="bottom-card">
+                                <div class="attack-area">
+                                    <p class="attack-stats"></p>
+                                    <p class="attack-title">Attack</p>
+                                </div>
+                                <div class="defense-area">
+                                    <p class="defense-stats"></p>
+                                    <p class="defense-title">Defense</p>
+                                </div>
+                                <div class="hp-area">
+                                    <p class="hp-stats"></p>
+                                    <p class="hp-title">Health</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="generate-btn"><img src="./img/generate.png" alt="generate button"></button>
+                    </div>
+                </section>
+                <section class="comparison-stats-section">
+                    <div class="pokemon-versus"><img src="./img/versus.png" alt="versus-title-img"></div>
+                    <div class="comparison-stats-area">
+                        <div class="comparison-stats animated-card">
+                            <ul>
+                                <li class="name-comparison"><span class="name-your-pokemon"></span><span
+                                        class="name-info">Name</span><span class="name-opponent-pokemon"></span></li>
+                                <li class="attack-comparison"><span class="quantity-your-attack"></span><span
+                                        class="attack-info">Attack</span><span class="quantity-opponent-attack"></span>
+                                </li>
+                                <li class="defense-comparison"><span class="quantity-your-defense"></span><span
+                                        class="defense-info">Defense</span><span
+                                        class="quantity-opponent-defense"></span>
+                                </li>
+                                <li class="health-comparison"><span class="quantity-your-health"></span><span
+                                        class="health-info">Health</span><span class="quantity-opponent-health"></span>
+                                </li>
+                                <li class="summary"><span class="your-summary"></span><span
+                                        class="summary-info">Summary</span><span class="opponent-summary"></span></li>
+                            </ul>
+                            <p class="results">Winner: <span class="winner"></span></p>
+                        </div>
+                        <button class="fight-btn"><img src="./img/fight.png" alt="fight button"></button>
+                    </div>
+                </section>
+                <section class="opponent-card-section">
+                    <div class="pokemon-title-opponent"><img src="./img/opponent.png" alt="pokemon-title-img"></div>
+                    <div class="opponent-card-area">
+                        <div class="opponent-card animated-card">
+                            <div class="top-card">
+                                <p class="experiences-opponent"></p>
+                                <p class="type-opponent"></p>
+                            </div>
+                            <div class="img-area">
+                                <img src="" alt="pokemon-image" class="pokemon-img-opponent">
+                                <p class="pokemon-name-opponent"></p>
+                            </div>
+                            <div class="middle-card">
+                                <p class="first-abilities-opponent"></p>
+                                <p class="second-abilities-opponent"></p>
+                            </div>
+                            <div class="bottom-card">
+                                <div class="attack-area">
+                                    <p class="attack-stats-opponent"></p>
+                                    <p class="attack-title">Attack</p>
+                                </div>
+                                <div class="defense-area">
+                                    <p class="defense-stats-opponent"></p>
+                                    <p class="defense-title">Defense</p>
+                                </div>
+                                <div class="hp-area">
+                                    <p class="hp-stats-opponent"></p>
+                                    <p class="hp-title">Health</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="generate-opponent-btn"><img src="./img/generate.png"
+                                alt="generate button"></button>
+                    </div>
+                </section>
+            </div>
+            <div class="bottom-area">
+                <div class="numbers-data-area">
+                    <p class="number-won-battles">Number of battles won: <span class="number-of-battles">0</span></p>
+                    <p class="experience-gained">Amount of experience gained: <span class="number-of-exp">0</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="shadow-after-lose"></div>
+        <div class="shadow-fight"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/players.js
+    "></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1563 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Mohave", sans-serif;
+  background: rgb(230, 228, 115);
+  background: linear-gradient(90deg, rgb(151, 150, 85) 0%, rgb(227, 132, 43) 25%, rgb(190, 89, 76) 35%, rgb(170, 89, 68) 50%, rgb(190, 89, 76) 65%, rgb(227, 132, 43) 75%, rgb(151, 150, 85) 100%);
+}
+
+.welcome-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(136, 8, 209);
+  background: linear-gradient(90deg, rgb(136, 8, 209) 0%, rgb(90, 91, 190) 50%, rgb(136, 8, 209) 100%);
+  border: none;
+  box-shadow: 0 0 10px white;
+  border: 1px outset rgb(228, 194, 238);
+  border-radius: 15px;
+  height: 840px;
+  width: 1200px;
+  z-index: 20;
+  transition: animation 0.3s;
+  animation: popup-animation 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+.welcome-popup h1 {
+  font-size: 5.5rem;
+}
+.welcome-popup .instructions-area {
+  text-align: center;
+}
+.welcome-popup .instructions-area h2 {
+  margin-top: 0.3em;
+  font-size: 3.8rem;
+  color: white;
+}
+.welcome-popup .instructions-area p {
+  width: 1100px;
+  font-size: 2.6rem;
+  padding: 0.3em;
+  color: white;
+}
+.welcome-popup .characters-area {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.welcome-popup .characters-area .character-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.welcome-popup .characters-area .character-area img {
+  height: 14em;
+  box-shadow: 0 0 10px white;
+  background: rgb(129, 34, 143);
+  background: linear-gradient(90deg, rgb(129, 34, 143) 0%, rgb(156, 115, 209) 25%, rgb(156, 115, 209) 40%, rgb(160, 76, 53) 50%, rgb(156, 115, 209) 60%, rgb(156, 115, 209) 75%, rgb(129, 34, 143) 100%);
+  border-radius: 10px;
+  transition: animation 0.3s;
+}
+.welcome-popup .characters-area .character-area .player-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.8em;
+  height: 2em;
+  width: 4em;
+  font-size: 2.3rem;
+  background: rgb(129, 34, 143);
+  background: linear-gradient(90deg, rgb(129, 34, 143) 0%, rgb(161, 110, 203) 50%, rgb(129, 34, 143) 100%);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgb(236, 166, 166);
+  border-radius: 45%;
+  transition: animation 0.3s;
+}
+.welcome-popup .characters-area .character-area .choose-character-btn {
+  margin-top: 0.6em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.welcome-popup .characters-area .character-area .choose-character-btn .pokeball {
+  height: 4.5em;
+  background-color: transparent;
+  background: none;
+  box-shadow: 0 0 0;
+  border: none;
+}
+.welcome-popup .characters-area .character-area .character-area-animation img {
+  box-shadow: 0 0 15px gold;
+  animation: player-card-animation 0.35s ease-in infinite;
+}
+@keyframes player-card-animation {
+  0% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(129, 34, 143) 0%, rgb(161, 110, 203) 50%, rgb(129, 34, 143) 100%);
+  }
+  25% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(139, 38, 150) 0%, rgb(170, 120, 215) 50%, rgb(139, 38, 150) 100%);
+  }
+  50% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(150, 25, 170) 0%, rgb(190, 90, 185) 50%, rgb(150, 25, 170) 100%);
+  }
+  75% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(139, 38, 150) 0%, rgb(170, 120, 215) 50%, rgb(139, 38, 150) 100%);
+  }
+  100% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(129, 34, 143) 0%, rgb(161, 110, 203) 50%, rgb(129, 34, 143) 100%);
+  }
+}
+.welcome-popup .characters-area .character-area .player-name-animation {
+  animation: player-name-animation 0.35s ease-in infinite;
+}
+@keyframes player-name-animation {
+  0% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(129, 34, 143) 0%, rgb(161, 110, 203) 50%, rgb(129, 34, 143) 100%);
+  }
+  25% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(139, 38, 150) 0%, rgb(170, 120, 215) 50%, rgb(139, 38, 150) 100%);
+  }
+  50% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(150, 25, 170) 0%, rgb(190, 90, 185) 50%, rgb(150, 25, 170) 100%);
+  }
+  75% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(139, 38, 150) 0%, rgb(170, 120, 215) 50%, rgb(139, 38, 150) 100%);
+  }
+  100% {
+    background: rgb(129, 34, 143);
+    background: linear-gradient(90deg, rgb(129, 34, 143) 0%, rgb(161, 110, 203) 50%, rgb(129, 34, 143) 100%);
+  }
+}
+@keyframes popup-animation {
+  0% {
+    box-shadow: 0 0 10px white;
+  }
+  50% {
+    box-shadow: 0 0 10px rgb(255, 203, 203);
+  }
+  100% {
+    box-shadow: 0 0 10px white;
+  }
+}
+
+.shadow {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.app {
+  position: relative;
+  height: 830px;
+  width: 1200px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+  background: rgb(230, 228, 115);
+  background: linear-gradient(90deg, rgb(230, 228, 115) 0%, rgb(227, 132, 43) 25%, rgb(215, 96, 80) 35%, rgb(255, 136, 107) 50%, rgb(215, 96, 80) 65%, rgb(227, 132, 43) 75%, rgb(230, 228, 115) 100%);
+}
+.app .lose-popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  width: 400px;
+  border-radius: 10px;
+  z-index: 10;
+  transition: animation 0.3s;
+  animation: show-lose-popup 4s ease-in forwards;
+}
+.app .lose-popup .pokemon-fight-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/pokemon-fight.png");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px red;
+}
+.app .lose-popup .pokemon-fight-img h3 {
+  padding: 1em;
+  color: white;
+  font-size: 3rem;
+  z-index: 10;
+}
+.app .lose-popup .pokemon-fight-img .restart-btn {
+  padding: 0.5em 3em;
+  font-size: 2rem;
+  background-color: rgb(212, 64, 64);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+.app .lose-popup .pokemon-fight-img .restart-btn:hover {
+  background-color: rgb(184, 52, 52);
+}
+.app .lose-popup .pokemon-fight-img .shadow-fight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+@keyframes show-lose-popup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .music-btn,
+.app .stop-music-btn {
+  position: relative;
+  top: 0.5em;
+  left: 0.5em;
+  margin-right: 0.4em;
+  font-size: 2.2rem;
+  border: none;
+  background-color: transparent;
+  color: rgb(126, 126, 126);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.app .active-btn {
+  color: rgb(153, 48, 0);
+}
+.app .music-btn:hover,
+.app .stop-music-btn:hover {
+  color: rgb(94, 94, 94);
+}
+.app .active-btn:hover {
+  color: rgb(99, 31, 0);
+}
+.app .choosen-player-area {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0.5em;
+  right: 0.5em;
+  border-radius: 5px;
+  background: rgb(129, 34, 143);
+  background: linear-gradient(346deg, rgb(129, 34, 143) 0%, rgb(156, 115, 209) 25%, rgb(156, 115, 209) 40%, rgb(205, 115, 209) 50%, rgb(156, 115, 209) 60%, rgb(156, 115, 209) 75%, rgb(129, 34, 143) 100%);
+  box-shadow: 0 0 5px rgb(122, 135, 247);
+}
+.app .choosen-player-area .choosen-player-img {
+  height: 5em;
+  border-bottom: 1px solid white;
+}
+.app .choosen-player-area .choosen-player-name {
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.app .active-player {
+  visibility: visible;
+}
+.app .title {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.app .title img {
+  width: 800px;
+}
+.app .app-area {
+  display: flex;
+  flex-direction: column;
+}
+.app .app-area .middle-area {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2em;
+}
+.app .app-area .middle-area .your-card-section .pokemon-title,
+.app .app-area .middle-area .your-card-section .pokemon-versus,
+.app .app-area .middle-area .your-card-section .pokemon-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .pokemon-title,
+.app .app-area .middle-area .comparison-stats-section .pokemon-versus,
+.app .app-area .middle-area .comparison-stats-section .pokemon-title-opponent,
+.app .app-area .middle-area .opponent-card-section .pokemon-title,
+.app .app-area .middle-area .opponent-card-section .pokemon-versus,
+.app .app-area .middle-area .opponent-card-section .pokemon-title-opponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+.app .app-area .middle-area .your-card-section .pokemon-title img,
+.app .app-area .middle-area .your-card-section .pokemon-versus img,
+.app .app-area .middle-area .your-card-section .pokemon-title-opponent img,
+.app .app-area .middle-area .comparison-stats-section .pokemon-title img,
+.app .app-area .middle-area .comparison-stats-section .pokemon-versus img,
+.app .app-area .middle-area .comparison-stats-section .pokemon-title-opponent img,
+.app .app-area .middle-area .opponent-card-section .pokemon-title img,
+.app .app-area .middle-area .opponent-card-section .pokemon-versus img,
+.app .app-area .middle-area .opponent-card-section .pokemon-title-opponent img {
+  height: 5em;
+  transition: animation 0.3s;
+}
+.app .app-area .middle-area .your-card-section .animated-img,
+.app .app-area .middle-area .comparison-stats-section .animated-img,
+.app .app-area .middle-area .opponent-card-section .animated-img {
+  animation: animated-img 2s ease-in backwards;
+}
+@keyframes animated-img {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .app-area .middle-area .your-card-section .your-card-area,
+.app .app-area .middle-area .your-card-section .comparison-stats-area,
+.app .app-area .middle-area .your-card-section .opponent-card-area,
+.app .app-area .middle-area .comparison-stats-section .your-card-area,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area,
+.app .app-area .middle-area .opponent-card-section .your-card-area,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .generate-btn,
+.app .app-area .middle-area .your-card-section .your-card-area .fight-btn,
+.app .app-area .middle-area .your-card-section .your-card-area .generate-opponent-btn,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-btn,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .fight-btn,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-opponent-btn,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-btn,
+.app .app-area .middle-area .your-card-section .opponent-card-area .fight-btn,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-opponent-btn,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-btn,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .fight-btn,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-opponent-btn,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-btn,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .fight-btn,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-opponent-btn,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-btn,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .fight-btn,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-opponent-btn,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-btn,
+.app .app-area .middle-area .opponent-card-section .your-card-area .fight-btn,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-opponent-btn,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-btn,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .fight-btn,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-opponent-btn,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-btn,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .fight-btn,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-opponent-btn {
+  position: relative;
+  margin-top: 1.5em;
+  padding: 0.3em 1.5em;
+  font-size: 2rem;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgb(151, 62, 253);
+  cursor: pointer;
+  overflow: hidden;
+  background: rgb(136, 8, 209);
+  background: linear-gradient(90deg, rgb(146, 8, 220) 0%, rgb(40, 91, 200) 50%, rgb(146, 8, 220) 100%);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .generate-btn img,
+.app .app-area .middle-area .your-card-section .your-card-area .fight-btn img,
+.app .app-area .middle-area .your-card-section .your-card-area .generate-opponent-btn img,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-btn img,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .fight-btn img,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-opponent-btn img,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-btn img,
+.app .app-area .middle-area .your-card-section .opponent-card-area .fight-btn img,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-opponent-btn img,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-btn img,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .fight-btn img,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-opponent-btn img,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-btn img,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .fight-btn img,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-opponent-btn img,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-btn img,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .fight-btn img,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-opponent-btn img,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-btn img,
+.app .app-area .middle-area .opponent-card-section .your-card-area .fight-btn img,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-opponent-btn img,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-btn img,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .fight-btn img,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-opponent-btn img,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-btn img,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .fight-btn img,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-opponent-btn img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .generate-btn::before,
+.app .app-area .middle-area .your-card-section .your-card-area .fight-btn::before,
+.app .app-area .middle-area .your-card-section .your-card-area .generate-opponent-btn::before,
+.app .app-area .middle-area .your-card-section .your-card-area .btn-disabled::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-btn::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .fight-btn::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-opponent-btn::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .btn-disabled::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-btn::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .fight-btn::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-opponent-btn::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .btn-disabled::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-btn::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .fight-btn::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-opponent-btn::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .btn-disabled::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-btn::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .fight-btn::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-opponent-btn::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .btn-disabled::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-btn::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .fight-btn::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-opponent-btn::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .btn-disabled::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-btn::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .fight-btn::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-opponent-btn::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .btn-disabled::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-btn::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .fight-btn::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-opponent-btn::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .btn-disabled::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-btn::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .fight-btn::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-opponent-btn::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .btn-disabled::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -120px;
+  height: 160%;
+  width: 100px;
+  background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  transform: rotate(20deg);
+  transition: all 0.3s;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .generate-btn:hover::before,
+.app .app-area .middle-area .your-card-section .your-card-area .fight-btn:hover::before,
+.app .app-area .middle-area .your-card-section .your-card-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .your-card-section .your-card-area .btn-disabled:hover::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-btn:hover::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .fight-btn:hover::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .btn-disabled:hover::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-btn:hover::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .fight-btn:hover::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .your-card-section .opponent-card-area .btn-disabled:hover::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .fight-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .btn-disabled:hover::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .fight-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .btn-disabled:hover::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .fight-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .btn-disabled:hover::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .fight-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .your-card-area .btn-disabled:hover::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .fight-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .btn-disabled:hover::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .fight-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .generate-opponent-btn:hover::before,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .btn-disabled:hover::before {
+  left: 55%;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .btn-disabled,
+.app .app-area .middle-area .your-card-section .comparison-stats-area .btn-disabled,
+.app .app-area .middle-area .your-card-section .opponent-card-area .btn-disabled,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .btn-disabled,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats-area .btn-disabled,
+.app .app-area .middle-area .comparison-stats-section .opponent-card-area .btn-disabled,
+.app .app-area .middle-area .opponent-card-section .your-card-area .btn-disabled,
+.app .app-area .middle-area .opponent-card-section .comparison-stats-area .btn-disabled,
+.app .app-area .middle-area .opponent-card-section .opponent-card-area .btn-disabled {
+  background: rgb(101, 101, 101);
+  background: linear-gradient(90deg, rgb(101, 101, 101) 0%, rgb(77, 77, 77) 25%, rgb(55, 55, 55) 50%, rgb(77, 77, 77) 75%, rgb(101, 101, 101) 100%);
+  box-shadow: 0 0 10px rgb(85, 82, 82);
+}
+.app .app-area .middle-area .your-card-section .your-card,
+.app .app-area .middle-area .your-card-section .comparison-stats,
+.app .app-area .middle-area .your-card-section .opponent-card,
+.app .app-area .middle-area .comparison-stats-section .your-card,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats,
+.app .app-area .middle-area .comparison-stats-section .opponent-card,
+.app .app-area .middle-area .opponent-card-section .your-card,
+.app .app-area .middle-area .opponent-card-section .comparison-stats,
+.app .app-area .middle-area .opponent-card-section .opponent-card {
+  height: 450px;
+  width: 350px;
+  border: 2px outset rgb(232, 236, 255);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(151, 62, 253);
+  background: rgb(136, 8, 209);
+  background: linear-gradient(90deg, rgb(136, 8, 209) 0%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 100%);
+  transition: animation 0.3s;
+}
+.app .app-area .middle-area .your-card-section .animated-card,
+.app .app-area .middle-area .comparison-stats-section .animated-card,
+.app .app-area .middle-area .opponent-card-section .animated-card {
+  animation: animated-card ease-in-out 3s infinite;
+}
+@keyframes animated-card {
+  0% {
+    box-shadow: 0 0 10px rgb(151, 62, 253);
+  }
+  50% {
+    box-shadow: 0 0 30px rgb(255, 255, 255);
+  }
+  100% {
+    box-shadow: 0 0 10px rgb(151, 62, 253);
+  }
+}
+.app .app-area .middle-area .your-card-section .animated-card-fight,
+.app .app-area .middle-area .comparison-stats-section .animated-card-fight,
+.app .app-area .middle-area .opponent-card-section .animated-card-fight {
+  animation: animate-card-fight ease-in-out 0.65s infinite;
+}
+@keyframes animate-card-fight {
+  0% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(136, 8, 209) 0%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 100%);
+  }
+  10% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(233, 144, 103) 5%, rgb(140, 12, 219) 50%, rgb(233, 144, 103) 95%);
+  }
+  20% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(136, 8, 209) 10%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 90%);
+  }
+  30% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(233, 144, 103) 15%, rgb(140, 12, 219) 50%, rgb(233, 144, 103) 85%);
+  }
+  40% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(136, 8, 209) 20%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 80%);
+  }
+  50% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(233, 144, 103) 25%, rgb(140, 12, 219) 50%, rgb(233, 144, 103) 78.5%);
+  }
+  60% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(136, 8, 209) 20%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 80%);
+  }
+  70% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(140, 12, 219) 15%, rgb(233, 144, 103) 50%, rgb(140, 12, 219) 85%);
+  }
+  80% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(136, 8, 209) 10%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 90%);
+  }
+  90% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(140, 12, 219) 5%, rgb(233, 144, 103) 50%, rgb(140, 12, 219) 95%);
+  }
+  100% {
+    background: rgb(178, 115, 230);
+    background: linear-gradient(90deg, rgb(136, 8, 209) 0%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 100%);
+  }
+}
+.app .app-area .middle-area .your-card-section .winning-card-animation,
+.app .app-area .middle-area .comparison-stats-section .winning-card-animation,
+.app .app-area .middle-area .opponent-card-section .winning-card-animation {
+  animation: winning-card-animation 5s forwards;
+}
+@keyframes winning-card-animation {
+  0% {
+    box-shadow: 0 0 10px rgb(151, 62, 253);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgb(7, 7, 7);
+    border: 2px outset rgb(143, 248, 161);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 10px rgb(151, 62, 253);
+    transform: scale(1);
+  }
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5em;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card p,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card p,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card p,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card p,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card p,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card p,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card p,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card p,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card p {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .experiences,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .experiences,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .experiences,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .experiences,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .experiences,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .experiences,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .experiences,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .experiences,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .experiences {
+  text-transform: uppercase;
+  background: rgb(164, 93, 0);
+  background: linear-gradient(90deg, rgb(164, 93, 0) 0%, rgb(194, 162, 0) 50%, rgb(164, 93, 0) 100%);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .experiences,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .type,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .first-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .second-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .experiences,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .type,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .first-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .second-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .experiences,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .type,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .first-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .second-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .experiences,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .type,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .first-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .second-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .experiences,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .type,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .first-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .second-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .experiences,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .type,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .first-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .second-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .experiences,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .type,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .first-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .second-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .experiences,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .type,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .first-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .second-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .experiences,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .type,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .first-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .second-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-title {
+  padding: 0.2em 1em;
+  border-radius: 25px;
+  color: white;
+  box-shadow: 0 0 15px rgb(239, 255, 247);
+  font-weight: bold;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .type,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .type,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .type,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .type,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .type,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .type,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .type,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .type,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .type {
+  background: rgb(5, 116, 115);
+  background: linear-gradient(90deg, rgb(5, 116, 115) 0%, rgb(0, 145, 159) 50%, rgb(5, 116, 115) 100%);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .first-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .top-card .second-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .first-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .middle-card .second-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .first-abilities,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .second-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .first-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .top-card .second-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .first-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .middle-card .second-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .first-abilities,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .second-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .first-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .top-card .second-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .first-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .middle-card .second-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .first-abilities,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .second-abilities {
+  background: rgb(99, 4, 107);
+  background: linear-gradient(90deg, rgb(99, 4, 107) 0%, rgb(179, 88, 189) 50%, rgb(99, 4, 107) 100%);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .img-area,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .img-area,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .img-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .img-area .pokemon-img,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .img-area .pokemon-img,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .img-area .pokemon-img {
+  height: 15em;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .img-area p,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .img-area p,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .img-area p {
+  margin-top: 0.5em;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-bottom: 3px solid white;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgb(168, 62, 255);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .hp-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6em;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .hp-stats {
+  font-weight: bold;
+  box-shadow: 0 0 15px rgb(239, 255, 247);
+  color: rgb(255, 255, 255);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .attack-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .attack-stats {
+  background: rgb(156, 0, 0);
+  background: linear-gradient(90deg, rgb(156, 0, 0) 0%, rgb(255, 78, 78) 50%, rgb(156, 0, 0) 100%);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .defense-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .defense-stats {
+  background: rgb(5, 74, 162);
+  background: linear-gradient(90deg, rgb(5, 74, 162) 0%, rgb(70, 169, 226) 50%, rgb(5, 74, 162) 100%);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .hp-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .hp-stats {
+  background: rgb(6, 105, 41);
+  background: linear-gradient(90deg, rgb(6, 105, 41) 0%, rgb(0, 171, 16) 50%, rgb(6, 105, 41) 100%);
+}
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .attack-area .animated-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .defense-area .animated-stats,
+.app .app-area .middle-area .your-card-section .your-card-area .your-card .bottom-card .hp-area .animated-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .attack-area .animated-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .defense-area .animated-stats,
+.app .app-area .middle-area .comparison-stats-section .your-card-area .your-card .bottom-card .hp-area .animated-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .attack-area .animated-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .defense-area .animated-stats,
+.app .app-area .middle-area .opponent-card-section .your-card-area .your-card .bottom-card .hp-area .animated-stats {
+  animation: animated-stats 2s ease-in backwards;
+}
+@keyframes animated-stats {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .app-area .middle-area .your-card-section .opponent-card .top-card,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5em;
+}
+.app .app-area .middle-area .your-card-section .opponent-card .top-card p,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card p,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card p,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card p,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card p,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card p,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card p,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card p,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card p {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .experiences-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .experiences-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .experiences-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .experiences-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .experiences-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .experiences-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .experiences-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .experiences-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .experiences-opponent {
+  text-transform: uppercase;
+  background: rgb(164, 93, 0);
+  background: linear-gradient(90deg, rgb(164, 93, 0) 0%, rgb(194, 162, 0) 50%, rgb(164, 93, 0) 100%);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .experiences-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .type-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .first-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .second-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .attack-title,
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .defense-title,
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .hp-title,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .experiences-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .type-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .first-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .second-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .attack-title,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .defense-title,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .hp-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .experiences-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .type-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .first-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .second-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .experiences-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .type-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .first-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .second-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .attack-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .defense-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .hp-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .experiences-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .type-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .first-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .second-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .attack-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .defense-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .hp-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .experiences-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .type-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .first-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .second-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .experiences-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .type-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .first-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .second-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .attack-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .defense-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .hp-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .experiences-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .type-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .first-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .second-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .attack-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .defense-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .hp-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .experiences-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .type-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .first-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .second-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-title {
+  padding: 0.2em 1em;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgb(239, 255, 247);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .type-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .type-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .type-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .type-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .type-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .type-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .type-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .type-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .type-opponent {
+  background: rgb(5, 116, 115);
+  background: linear-gradient(90deg, rgb(5, 116, 115) 0%, rgb(0, 145, 159) 50%, rgb(5, 116, 115) 100%);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .first-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .top-card .second-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .first-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .middle-card .second-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .first-abilities-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .second-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .first-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .top-card .second-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .first-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .middle-card .second-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .first-abilities-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .second-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .first-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .top-card .second-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .first-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .middle-card .second-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .first-abilities-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .second-abilities-opponent {
+  background: rgb(99, 4, 107);
+  background: linear-gradient(90deg, rgb(99, 4, 107) 0%, rgb(179, 88, 189) 50%, rgb(99, 4, 107) 100%);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .img-area,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .img-area,
+.app .app-area .middle-area .opponent-card-section .opponent-card .img-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app .app-area .middle-area .your-card-section .opponent-card .img-area .pokemon-img-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .img-area .pokemon-img-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .img-area .pokemon-img-opponent {
+  height: 15em;
+}
+.app .app-area .middle-area .your-card-section .opponent-card .img-area p,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .img-area p,
+.app .app-area .middle-area .opponent-card-section .opponent-card .img-area p {
+  margin-top: 0.5em;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-bottom: 3px solid white;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgb(168, 62, 255);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .hp-stats-opponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6em;
+  height: 2em;
+  width: 2em;
+  box-shadow: 0 0 5px black;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .attack-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .defense-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .hp-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .attack-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .defense-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .hp-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .attack-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .defense-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .hp-title-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .attack-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .defense-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .hp-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .attack-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .defense-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .hp-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .attack-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .defense-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .hp-title-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .attack-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .defense-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .hp-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .attack-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .defense-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .hp-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .attack-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .defense-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .hp-title-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .hp-stats-opponent {
+  font-weight: bold;
+  box-shadow: 0 0 15px rgb(239, 255, 247);
+  color: rgb(255, 255, 255);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .attack-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .attack-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .attack-stats-opponent {
+  background: rgb(156, 0, 0);
+  background: linear-gradient(90deg, rgb(156, 0, 0) 0%, rgb(255, 78, 78) 50%, rgb(156, 0, 0) 100%);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .defense-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .defense-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .defense-stats-opponent {
+  background: rgb(5, 74, 162);
+  background: linear-gradient(90deg, rgb(5, 74, 162) 0%, rgb(70, 169, 226) 50%, rgb(5, 74, 162) 100%);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .hp-stats-opponent,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .hp-title,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .hp-stats-opponent {
+  background: rgb(6, 105, 41);
+  background: linear-gradient(90deg, rgb(6, 105, 41) 0%, rgb(0, 171, 16) 50%, rgb(6, 105, 41) 100%);
+}
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .attack-area .animated-stats,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .defense-area .animated-stats,
+.app .app-area .middle-area .your-card-section .opponent-card .bottom-card .hp-area .animated-stats,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .attack-area .animated-stats,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .defense-area .animated-stats,
+.app .app-area .middle-area .comparison-stats-section .opponent-card .bottom-card .hp-area .animated-stats,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .attack-area .animated-stats,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .defense-area .animated-stats,
+.app .app-area .middle-area .opponent-card-section .opponent-card .bottom-card .hp-area .animated-stats {
+  animation: animated-stats 2s ease-in backwards;
+}
+@keyframes animated-stats {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .app-area .middle-area .your-card-section .comparison-stats,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats,
+.app .app-area .middle-area .opponent-card-section .comparison-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul {
+  position: relative;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul li,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul li,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  margin: 1em;
+  width: 300px;
+  list-style: none;
+  font-size: 2.2rem;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 0 15px rgb(239, 255, 247);
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .name-comparison,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .name-comparison,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .name-comparison {
+  background: rgb(99, 4, 107);
+  background: linear-gradient(90deg, rgb(99, 4, 107) 0%, rgb(179, 88, 189) 50%, rgb(99, 4, 107) 100%);
+  text-transform: capitalize;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .name-comparison .name-your-pokemon,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .name-comparison .name-opponent-pokemon,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .name-comparison .name-your-pokemon,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .name-comparison .name-opponent-pokemon,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .name-comparison .name-your-pokemon,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .name-comparison .name-opponent-pokemon {
+  font-weight: bold;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .attack-comparison,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .attack-comparison,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .attack-comparison {
+  background: rgb(164, 0, 0);
+  background: linear-gradient(90deg, rgb(164, 0, 0) 0%, rgb(207, 39, 39) 50%, rgb(164, 0, 0) 100%);
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .attack-comparison .quantity-your-attack,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .attack-comparison .quantity-opponent-attack,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .attack-comparison .quantity-your-attack,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .attack-comparison .quantity-opponent-attack,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .attack-comparison .quantity-your-attack,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .attack-comparison .quantity-opponent-attack {
+  font-weight: bold;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .defense-comparison,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .defense-comparison,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .defense-comparison {
+  background: rgb(54, 118, 235);
+  background: linear-gradient(90deg, rgb(54, 118, 235) 0%, rgb(0, 84, 152) 50%, rgb(54, 118, 235) 100%);
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .defense-comparison .quantity-your-defense,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .defense-comparison .quantity-opponent-defense,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .defense-comparison .quantity-your-defense,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .defense-comparison .quantity-opponent-defense,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .defense-comparison .quantity-your-defense,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .defense-comparison .quantity-opponent-defense {
+  font-weight: bold;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .health-comparison,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .health-comparison,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .health-comparison {
+  background: rgb(6, 105, 41);
+  background: linear-gradient(90deg, rgb(6, 105, 41) 0%, rgb(0, 171, 16) 50%, rgb(6, 105, 41) 100%);
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .health-comparison .quantity-your-health,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .health-comparison .quantity-opponent-health,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .health-comparison .quantity-your-health,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .health-comparison .quantity-opponent-health,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .health-comparison .quantity-your-health,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .health-comparison .quantity-opponent-health {
+  font-weight: bold;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .summary,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .summary,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .summary {
+  background: rgb(164, 93, 0);
+  background: linear-gradient(90deg, rgb(164, 93, 0) 0%, rgb(194, 162, 0) 50%, rgb(164, 93, 0) 100%);
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .summary .your-summary,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .summary .opponent-summary,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .summary .your-summary,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .summary .opponent-summary,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .summary .your-summary,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .summary .opponent-summary {
+  font-weight: bold;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .animated-stats-comparison,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .animated-stats-comparison,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .animated-stats-comparison {
+  animation: animated-stats-comparison 4s ease-in backwards;
+}
+@keyframes animated-stats-comparison {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .app-area .middle-area .your-card-section .comparison-stats ul .name-info,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .attack-info,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .defense-info,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .health-info,
+.app .app-area .middle-area .your-card-section .comparison-stats ul .summary-info,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .name-info,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .attack-info,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .defense-info,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .health-info,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats ul .summary-info,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .name-info,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .attack-info,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .defense-info,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .health-info,
+.app .app-area .middle-area .opponent-card-section .comparison-stats ul .summary-info {
+  position: sticky;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+.app .app-area .middle-area .your-card-section .comparison-stats .results,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats .results,
+.app .app-area .middle-area .opponent-card-section .comparison-stats .results {
+  font-size: 2.8rem;
+  color: white;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats .results .winner,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats .results .winner,
+.app .app-area .middle-area .opponent-card-section .comparison-stats .results .winner {
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: animation 0.3s;
+}
+.app .app-area .middle-area .your-card-section .comparison-stats .results .winner-animation,
+.app .app-area .middle-area .comparison-stats-section .comparison-stats .results .winner-animation,
+.app .app-area .middle-area .opponent-card-section .comparison-stats .results .winner-animation {
+  animation: winner-animation 24s ease-in-out forwards;
+}
+@keyframes winner-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .app-area .bottom-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+.app .app-area .bottom-area .numbers-data-area {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.app .app-area .bottom-area .numbers-data-area .number-won-battles,
+.app .app-area .bottom-area .numbers-data-area .experience-gained {
+  font-size: 2.1rem;
+  padding: 0.2em 0.8em;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgb(253, 246, 243);
+  background: rgb(136, 8, 209);
+  background: linear-gradient(90deg, rgb(136, 8, 209) 0%, rgb(80, 131, 240) 50%, rgb(136, 8, 209) 100%);
+  color: white;
+}
+.app .app-area .bottom-area .numbers-data-area .number-won-battles .number-of-battles,
+.app .app-area .bottom-area .numbers-data-area .number-won-battles .number-of-exp,
+.app .app-area .bottom-area .numbers-data-area .experience-gained .number-of-battles,
+.app .app-area .bottom-area .numbers-data-area .experience-gained .number-of-exp {
+  font-weight: bold;
+}
+.app .app-area .bottom-area .numbers-data-area .number-won-battles .numbers-animation,
+.app .app-area .bottom-area .numbers-data-area .experience-gained .numbers-animation {
+  animation: numbers-animation 16s ease-in-out forwards;
+}
+@keyframes numbers-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .shadow-after-lose {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: animation 0.3s;
+  animation: show-lose-shadow 4s ease-in forwards;
+}
+@keyframes show-lose-shadow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */
